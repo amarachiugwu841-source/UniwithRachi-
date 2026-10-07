@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#087038">
+<title>UniWithRachi — Your Campus, Connected.</title>
+<style>
+:root{
+  --green:#087038;--green2:#0b8a48;--mint:#e8f6ef;--ink:#18231d;
+  --muted:#718078;--line:#e6eee9;--white:#fff;--orange:#f39a19;
+  --blue:#287be8;--purple:#7455df;--pink:#ef5271;
+}
+*{box-sizing:border-box} body{margin:0;background:#edf3ef;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+.app{max-width:430px;margin:auto;min-height:100vh;background:#fff;box-shadow:0 0 30px #00000012}
+header{padding:18px 18px 10px;position:sticky;top:0;background:#fff;z-index:5}
+.brand{display:flex;align-items:center;gap:10px}.logo{width:42px;height:42px;border-radius:13px;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900;font-size:17px;position:relative}.logo:after{content:"🎓";position:absolute;font-size:16px;top:-8px;right:-7px}
+.brand b{font-size:18px}.brand small{display:block;color:var(--muted);font-size:10px;margin-top:2px}
+.icon{margin-left:auto;font-size:21px}
+main{padding:8px 16px 88px}.campus{background:#f3f8f5;border:1px solid var(--line);padding:12px 14px;border-radius:14px;font-weight:700;margin-bottom:12px}
+.hero{height:155px;border-radius:20px;background:linear-gradient(135deg,#075f32,#16a05b);color:white;padding:22px;display:flex;flex-direction:column;justify-content:end;overflow:hidden;position:relative}
+.hero:after{content:"UNN";position:absolute;right:-10px;top:15px;font-size:85px;font-weight:900;opacity:.08}
+.hero h1{font-size:25px;margin:0 0 5px}.hero p{margin:0;font-size:13px;opacity:.9}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:14px 0}.tile{border:1px solid var(--line);border-radius:15px;padding:10px 5px;text-align:center;background:#fff;font-size:11px;font-weight:700}.tile span{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;margin:0 auto 6px;background:var(--mint);font-size:18px}
+h2{font-size:17px;margin:18px 0 10px}.row{display:flex;gap:8px;overflow:auto;padding-bottom:4px}.chip{white-space:nowrap;border:1px solid var(--line);padding:8px 13px;border-radius:20px;font-size:12px}.chip.active{background:var(--green);color:#fff;border-color:var(--green)}
+.card{border:1px solid var(--line);border-radius:16px;padding:13px;margin:9px 0;background:#fff}.meta{font-size:11px;color:var(--muted);margin-top:7px}.status{font-size:10px;font-weight:800;display:inline-flex;align-items:center;gap:4px;margin-bottom:7px}.verified{color:#138a4b}.official{color:#287be8}.unverified{color:#d99110}.title{font-size:14px;font-weight:800;line-height:1.35}.arrow{float:right;color:#9aa69f}
+.pageTitle{display:flex;align-items:center;gap:10px;margin:8px 0 15px}.back{font-size:23px}.pageTitle h2{margin:0}
+.event{display:flex;gap:11px}.date{width:48px;height:48px;border-radius:12px;background:var(--mint);display:grid;place-items:center;text-align:center;font-weight:900;color:var(--green);font-size:11px}
+.market{display:flex;gap:12px}.thumb{width:70px;height:70px;border-radius:13px;background:#eaf3ed;display:grid;place-items:center;font-size:30px}.price{color:#e76f00;font-weight:800;margin-top:5px;font-size:12px}
+.form{border:1px solid var(--line);border-radius:18px;padding:15px}.field{width:100%;border:1px solid #dce6e0;border-radius:12px;padding:12px;margin:6px 0 10px;font-size:13px}.btn{width:100%;border:0;border-radius:13px;padding:13px;background:var(--green);color:#fff;font-weight:800}
+nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);height:70px;background:#fff;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);z-index:10}
+nav button{border:0;background:none;font-size:10px;color:#748079;font-weight:700}nav button.active{color:var(--green)}nav span{display:block;font-size:20px;margin-bottom:3px}
+.empty{padding:30px 10px;text-align:center;color:var(--muted)}
+footer{text-align:center;color:#9aa69f;font-size:10px;padding:18px}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+  <div class="brand"><div class="logo">UR</div><div><b>UniWith<span style="color:var(--green)">Rachi</span></b><small>Your Campus, Connected.</small></div><div class="icon">🔔</div></div>
+</header>
+
+<main id="home">
+  <div class="campus">📍 University of Nigeria, Nsukka (UNN) ▾</div>
+  <section class="hero"><h1>Welcome to UniWithRachi</h1><p>Your campus, connected.</p></section>
+  <div class="grid">
+    <button class="tile" onclick="show('updates')"><span>📢</span>Updates</button>
+    <button class="tile" onclick="show('events')"><span>📅</span>Events</button>
+    <button class="tile" onclick="show('academics')"><span>🎓</span>Academics</button>
+    <button class="tile" onclick="show('opportunities')"><span>💼</span>Opportunities</button>
+    <button class="tile" onclick="show('trending')"><span>🔥</span>Trending</button>
+    <button class="tile" onclick="show('market')"><span>🛍️</span>Market</button>
+    <button class="tile" onclick="show('submit')"><span>➕</span>Submit</button>
+    <button class="tile" onclick="show('more')"><span>☰</span>More</button>
+  </div>
+  <h2>Latest Updates <span style="float:right;color:var(--green);font-size:11px" onclick="show('updates')">See all</span></h2>
+  <div id="latest"></div>
+  <footer>UniWithRachi • UNN Version 1</footer>
+</main>
+
+<main id="page" class="hidden"></main>
+
+<nav>
+<button id="n-home" class="active" onclick="show('home')"><span>⌂</span>Home</button>
+<button id="n-updates" onclick="show('updates')"><span>▣</span>Updates</button>
+<button id="n-events" onclick="show('events')"><span>◫</span>Events</button>
+<button id="n-more" onclick="show('more')"><span>☰</span>More</button>
+</nav>
+</div>
+
+<script>
+const data={
+updates:[
+ ['verified','GST 114 lecture moved to 10am today.','Faculty / Department • 2h ago'],
+ ['official','UNN announces new registration deadline.','University Management • 4h ago'],
+ ['unverified','Power supply may be disrupted today in some hostels.','Student Affairs • 5h ago'],
+ ['verified','Faculty departmental meeting scheduled for today.','Faculty of Science • 6h ago']
+],
+events:[
+ ['SEP','15','Departmental Week (CWO)','Student Centre • 9:00am','🎉'],
+ ['SEP','18','UNN Catholic Community Mass','Chapel • 6:00pm','⛪'],
+ ['SEP','20','Career Talk: Building Your Future','Lecture Theatre A • 10:00am','💼'],
+ ['SEP','22','Inter-faculty Football Match','UNN Sports Complex • 4:00pm','⚽']
+],
+academics:[
+ ['verified','GST 212 supplementary exam date has been released.','Department • 1h ago'],
+ ['official','Course registration deadline is approaching.','University Management • 1d ago'],
+ ['verified','GST 114 lecture moved to 10am today.','Faculty • 2h ago'],
+ ['official','Academic opportunity: apply for an excellence award.','University • 1d ago']
+],
+opportunities:[
+ ['official','UNN scholarship opportunity for undergraduates.','Deadline • Sep 30'],
+ ['verified','Nigerian Breweries Internship Program.','Deadline • Oct 5'],
+ ['official','Graduate Trainee opportunity — Access Bank.','Deadline • Sep 28'],
+ ['verified','Nigerian Student Essay Competition.','Deadline • Oct 15']
+],
+trending:[
+ ['🔥','UNN cafeteria food update','Students say the new menu is actually better this week.'],
+ ['🛣️','Road construction around campus','Slow movement reported around the entrance.'],
+ ['🎉','Who’s attending CWO departmental week?','Students are sharing their plans.'],
+ ['🚌','UNN shuttle bus schedule','Students discuss the updated timetable.']
+]
+};
+function badge(type){return `<div class="status ${type}">${type==='verified'?'● Verified':type==='official'?'● Official':'● Unverified'}</div>`}
+function updateCards(arr){return arr.map(x=>`<div class="card">${badge(x[0])}<div class="title">${x[1]} <span class="arrow">›</span></div><div class="meta">${x[2]}</div></div>`).join('')}
+document.getElementById('latest').innerHTML=updateCards(data.updates.slice(0,2));
+
+function show(name){
+ document.getElementById('home').classList.toggle('hidden',name!=='home');
+ const page=document.getElementById('page'); page.classList.toggle('hidden',name==='home');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ const nav=document.getElementById('n-'+(name==='home'?'home':(['updates','events'].includes(name)?name:'more')));
+ if(nav) nav.classList.add('active');
+ if(name==='home') return;
+ let html='';
+ if(name==='updates'||name==='academics'||name==='opportunities'){
+  const title=name==='updates'?'Campus Updates':name[0].toUpperCase()+name.slice(1);
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>${title}</h2></div><div class="row"><span class="chip active">All</span><span class="chip">Official</span><span class="chip">Verified</span><span class="chip">Unverified</span></div><div style="margin-top:10px">${updateCards(data[name])}</div>`;
+ } else if(name==='events'){
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>Events</h2></div><div class="row"><span class="chip active">Upcoming</span><span class="chip">Ongoing</span><span class="chip">Past</span></div>`;
+  html+=data.events.map(e=>`<div class="card event"><div class="date">${e[0]}<br>${e[1]}</div><div><div class="title">${e[4]} ${e[2]}</div><div class="meta">${e[3]}</div></div></div>`).join('');
+ } else if(name==='trending'){
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>Trending</h2></div><div class="row"><span class="chip active">Campus Buzz</span><span class="chip">Discussions</span><span class="chip">More</span></div>`;
+  html+=data.trending.map(x=>`<div class="card"><div class="title">${x[0]} ${x[1]} <span class="arrow">›</span></div><div class="meta">${x[2]}</div></div>`).join('');
+ } else if(name==='market'){
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>Campus Market</h2></div><div class="row"><span class="chip active">All</span><span class="chip">For Sale</span><span class="chip">Services</span><span class="chip">Businesses</span></div>`;
+  [['🍰','Freshly baked cakes & snacks','₦2,000 - ₦15,000'],['💇🏽','Hair braiding & makeup','₦5,000 - ₦20,000'],['🏠','Off-campus accommodation','₦250,000/year'],['📱','Laptops & phone accessories','₦1,000 - ₦250,000']].forEach(x=>html+=`<div class="card market"><div class="thumb">${x[0]}</div><div><div class="title">${x[1]}</div><div class="price">${x[2]}</div><div class="meta">Student seller • recently posted</div></div></div>`);
+ } else if(name==='submit'){
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>Submit Information</h2></div>
+  <div class="form"><p style="font-weight:800">Seen something important on campus?</p><p style="font-size:12px;color:var(--muted)">Send it here and our team will verify it before it goes live.</p>
+  <select class="field"><option>Choose category</option><option>General Update</option><option>Event</option><option>Academic</option><option>Opportunity</option><option>Business / Service</option></select>
+  <input class="field" placeholder="Short title">
+  <textarea class="field" rows="5" placeholder="Tell us what happened..."></textarea>
+  <input class="field" placeholder="Source / where you got the information">
+  <button class="btn" onclick="alert('Demo only: your submission would now go to the verification team.')">Submit for Verification</button></div>`;
+ } else {
+  html=`<div class="pageTitle"><span class="back" onclick="show('home')">‹</span><h2>More</h2></div>
+  <div class="card"><div class="title">👤 My Profile <span class="arrow">›</span></div></div>
+  <div class="card"><div class="title">🏫 Select University <span class="arrow">›</span></div><div class="meta">Currently: UNN (Nsukka)</div></div>
+  <div class="card"><div class="title">🔔 Notifications <span class="arrow">›</span></div></div>
+  <div class="card"><div class="title">⚙️ Settings <span class="arrow">›</span></div></div>
+  <div class="card"><div class="title">🛡️ How verification works <span class="arrow">›</span></div><div class="meta">Official • Verified • Unverified</div></div>`;
+ }
+ page.innerHTML=html;
+ window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
